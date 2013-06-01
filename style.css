@@ -1,0 +1,53 @@
+body, html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+  }
+  body {
+    background-color: #FFF;
+    background-image: url('img/footsteps.jpg');
+  }
+  .table{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f2f2f2));
+    background:-moz-linear-gradient(100% 100% 90deg, #f2f2f2, #fff);
+    background:gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f2f2f2));
+  }
+  #login-page
+  {
+    background-image: url('img/login_background.jpg');
+    font-size: 18px;
+    height: 100%;
+    font-weight: 200;
+    line-height: 30px;
+  }
+  #login-form
+  {
+    text-align: right;
+    opacity:0.8;
+    position:absolute; top:30%;
+    left: 70%;
+  }
+  #summary-content
+  {
+    height: 300px;
+    overflow: scroll;
+  }
+  .container-fluid
+  {
+    padding-top: 40px;
+    padding: 60px;
+    margin-bottom: 30px;
+    line-height: 30px;
+    position:relative;
+  }
+  .navbar .brand
+  {
+    padding-left: 30px;
+  }
+  h1 {
+    margin-bottom: 0;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: inherit;
+  }
