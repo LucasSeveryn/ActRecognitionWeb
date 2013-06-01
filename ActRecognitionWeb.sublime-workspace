@@ -1,0 +1,1046 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"container",
+				"container-fluid"
+			],
+			[
+				"paddi",
+				"padding-right"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"login",
+				"login-screen"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"move",
+				"move_forward"
+			],
+			[
+				"ro",
+				"rotate_random"
+			],
+			[
+				"rotate",
+				"rotate_right"
+			],
+			[
+				"rota",
+				"rotate_left"
+			],
+			[
+				"mov",
+				"move_forward"
+			],
+			[
+				"su",
+				"sumOfWeights"
+			],
+			[
+				"sam",
+				"sampleGaussian"
+			],
+			[
+				"B",
+				"B"
+			],
+			[
+				"is",
+				"iso_code"
+			],
+			[
+				"co",
+				"country"
+			],
+			[
+				"Rem",
+				"RemObjInterface"
+			],
+			[
+				"name",
+				"nameServerAddress"
+			],
+			[
+				"C",
+				"ClientProcess"
+			],
+			[
+				"Ser",
+				"ServerProcess"
+			],
+			[
+				"Cl",
+				"ClientProcess"
+			],
+			[
+				"Data",
+				"DatagramSocket"
+			],
+			[
+				"Com",
+				"Communication"
+			],
+			[
+				"cap",
+				"small-caps"
+			],
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"enem",
+				"enemyTeamRating"
+			],
+			[
+				"all",
+				"allyTeamRating"
+			],
+			[
+				"ally",
+				"allyTeamRating"
+			],
+			[
+				"rati",
+				"rating"
+			],
+			[
+				"rating",
+				"ratingHistory"
+			],
+			[
+				"compute",
+				"computeAchievements"
+			],
+			[
+				"unl",
+				"unlucky"
+			],
+			[
+				"achie",
+				"achievements"
+			],
+			[
+				"us",
+				"userRating"
+			],
+			[
+				"small",
+				"small-caps"
+			],
+			[
+				"piechart",
+				"piechart"
+			],
+			[
+				"chart",
+				"chartPaper"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"table",
+				"table-cell"
+			],
+			[
+				"ra",
+				"ratingValues"
+			],
+			[
+				"draw",
+				"drawLineGraph"
+			],
+			[
+				"w",
+				"winsNumber"
+			],
+			[
+				"assme",
+				"assemblyContent"
+			],
+			[
+				"assem",
+				"assemblyContent"
+			],
+			[
+				"user",
+				"userRatingGreen"
+			],
+			[
+				"g",
+				"g"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"10px",
+				"10px"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"cente",
+				"centered-table-cell"
+			],
+			[
+				"center",
+				"centered-box"
+			],
+			[
+				"hp_",
+				"hp_indicator"
+			],
+			[
+				"hel",
+				"healthdata_display"
+			],
+			[
+				"hp",
+				"hp_indicator"
+			],
+			[
+				"toggle",
+				"toggleGameStared"
+			],
+			[
+				"logged",
+				"loggedInValue"
+			],
+			[
+				"toggl",
+				"toggleLogin"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 3315,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/controller.js",
+			"settings":
+			{
+				"buffer_size": 647,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/MarkdownBuild/Markdown.sublime-build",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			],
+			[
+				"keybin",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"format",
+				"Eclipse: Format Java"
+			],
+			[
+				"INSTALL",
+				"Package Control: Install Package"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"g com",
+				"Git: Commit"
+			],
+			[
+				"git comm",
+				"Git: Quick Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"spaces",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"pref",
+				"Preferences: Settings - Default"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"git ",
+				"Git: Pull"
+			],
+			[
+				"Package Control: enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"rebul",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 115.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/ActRecognitionWeb.sublime-workspace",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/viewModel.js",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/index.html",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/test.js",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/knockout-2.2.1.js",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/Gravitas-based/index.html",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/main.js",
+		"/Users/Moa/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Moa/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/css/bootstrap.css",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/images/login_backgroud.jpg",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/images/login_backgroud",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/viewModel.js",
+		"/Users/Moa/Documents/gravitas/client/main.coffee",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/main.coffee",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/controller.coffee",
+		"/Users/Moa/Documents/gravitas/client/index.html",
+		"/Users/Moa/Documents/gravitas/client/js/game.coffee",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/ko-extras.coffee",
+		"/Users/Moa/Dropbox/git/ActRecognitionWeb/js/game.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/client/index.html",
+		"/Users/Moa/Dropbox/git/gravitas/client/main.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/server/server.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/client/js/game.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/client/js/spinners.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/client/js/ko-extras.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/client/js/main.js",
+		"/Users/Moa/Dropbox/git/gravitas/client/js/statistics.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/config.coffee",
+		"/Users/Moa/Dropbox/git/gravitas/Documentation/report.tex",
+		"/Users/Moa/Dropbox/git/gravitas/server/package.json",
+		"/opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/_resources/port1.0/group/github-1.0.tcl",
+		"/Users/Moa/Desktop/json",
+		"/Users/Moa/Desktop/may04/notsure",
+		"/Users/Moa/Dropbox/Last notes/z.LucasNotes/#Advanced Databases.mdown",
+		"/Users/Moa/Dropbox/Last notes/Lucas Notes/wall",
+		"/Users/Moa/Dropbox/Last notes/Lucas Notes/#Advanced Databases.mdown",
+		"/Users/Moa/Dropbox/Last notes/Exams/Robotics/LucasAnswers/wallfollow",
+		"/Users/Moa/Downloads/MCL.java",
+		"/Users/Moa/Dropbox/Last notes/Exams/Robotics/LucasAnswers/2012.mdown",
+		"/Users/Moa/Dropbox/Last notes/Exams/Robotics/LucasAnswers/2010.mdown",
+		"/Users/Moa/Dropbox/Last notes/Exams/Robotics/LucasAnswers/2011.mdown",
+		"/Users/Moa/Downloads/q1.pig",
+		"/Users/Moa/Desktop/model.pig",
+		"/Users/Moa/Dropbox/Last notes/Exams/ADatabases/Answers/Lucas-2011.mdown",
+		"/Users/Moa/Dropbox/Last notes/Exams/ADatabases/2012.sql",
+		"/Users/Moa/Dropbox/Last notes/Exams/ADatabases/Answers/q1.sql",
+		"/Users/Moa/Dropbox/Last notes/Lucas Notes/#Advanced Databases - 2.mdown",
+		"/Applications/Forex.mdown",
+		"/Users/Moa/Dropbox/Last notes/Lucas Notes/#Distributed Computing.mdown",
+		"/Users/Moa/Desktop/exam",
+		"/Users/Moa/Dropbox/Four_essays_on_liberty (1).bibtex",
+		"/Users/Moa/Dropbox/#Isiah Berlin and others have argued that the very",
+		"/Users/Moa/Desktop/bankdetails",
+		"/Users/Moa/Dropbox/Documents/bitcoin",
+		"/Users/Moa/Desktop/enrollment",
+		"/Users/Moa/Dropbox/examTimeTable",
+		"/Users/Moa/Dropbox/Exams 2013/mbc.txt",
+		"/Users/Moa/Dropbox/Exams 2013/MBCexamAnswers",
+		"/Users/Moa/Desktop/test.js",
+		"/Users/Moa/Desktop/btinetnert",
+		"/Users/Moa/Desktop/slow",
+		"/Users/Moa/Downloads/TransferManager.java",
+		"/Users/Moa/Desktop/maple leaf",
+		"/Users/Moa/Documents/MAlice/malice/Malice/Lexer.hs",
+		"/Users/Moa/Desktop/formy rna.odp",
+		"/Users/Moa/Documents/gravitas/client/style.css",
+		"/Users/Moa/Documents/gravitas/client/style.styl",
+		"/Users/Moa/Documents/gravitas/server/db-setup.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/statistics.coffee",
+		"/Users/Moa/Documents/gravitas/server/server.coffee",
+		"/Users/Moa/Documents/gravitas/server/db.coffee",
+		"/Users/Moa/Desktop/Time money",
+		"/Users/Moa/Desktop/npv",
+		"/Users/Moa/Documents/gravitas/server/ball_model.coffee",
+		"/Users/Moa/Documents/gravitas/server/arena_model.coffee",
+		"/Users/Moa/Documents/gravitas/config.coffee",
+		"/Users/Moa/Documents/gravitas/server/db.js",
+		"/Users/Moa/Documents/gravitas/server/db-setup.js",
+		"/Users/Moa/Documents/gravitas/client/js/countdown_timer.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/health_powerup_view.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/turret.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/ball_view.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/countdown_timer.js",
+		"/Users/Moa/Desktop/gRaphaël Line Charts.html",
+		"/Users/Moa/Documents/gravitas/client/js/lib/g.line.js",
+		"/Users/Moa/Documents/gravitas/statics.py",
+		"/Users/Moa/Documents/gravitas/client/js/arena.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/healthbar.coffee",
+		"/Users/Moa/Desktop/Sonic2.html",
+		"/Users/Moa/Desktop/square.html",
+		"/Users/Moa/Desktop/triangle",
+		"/Users/Moa/Desktop/Sonic.html",
+		"/Users/Moa/Desktop/test222.js",
+		"/Users/Moa/Documents/gravitas/client/js/config.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/lib/g.pie.js",
+		"/Users/Moa/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Moa/Library/Application Support/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/Moa/Desktop/test.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/vortex.coffee",
+		"/Users/Moa/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/Moa/Documents/gravitas/client/js/crosshair.coffee",
+		"/Users/Moa/Documents/gravitas/client/js/plasma_ball_view.coffee",
+		"/Users/Moa/Documents/CoffeTest/introduction.js",
+		"/Users/Moa/Library/Application Support/Sublime Text 2/Packages/User/CoffeeScript.sublime-build",
+		"/Users/Moa/Documents/CoffeTest/introduction.coffee",
+		"/Users/Moa/Desktop/CoffeeScript.sublime-build",
+		"/Users/Moa/Documents/CoffeTest/Introduction.sublime-project",
+		"/Users/Moa/Documents/CoffeTest/Introduction.sublime-build",
+		"/Users/Moa/Documents/Introduction.sublime-build",
+		"/Users/Moa/Documents/CS2 Notes/CoffeTest/introduction.coffee",
+		"/Users/Moa/Documents/CS2 Notes/CoffeTest/Introduction.sublime-project",
+		"/Users/Moa/Documents/CS2 Notes/CoffeTest/Introduction.sublime-workspace",
+		"/Users/Moa/Documents/gravitas/README.md",
+		"/Users/Moa/Desktop/group.txt",
+		"/Users/Moa/Dropbox/notes (1)/Architecture revision",
+		"/Users/Moa/Dropbox/notes (1)/Done/Architecture revision.txt",
+		"/Users/Moa/Dropbox/notes (1)/Architecture/Architecture revision.txt",
+		"/Users/Moa/Dropbox/notes (1)/blabla3.html",
+		"/Users/Moa/Documents/blabla.html",
+		"/Users/Moa/Documents/blabla2.html",
+		"/Users/Moa/Dropbox/notes (1)/algo revision",
+		"/Users/Moa/Dropbox/notes (1)/Chatley Revision",
+		"/Users/Moa/Dropbox/Private/Surro",
+		"/Users/Moa/Documents/test.java",
+		"/patterns.java",
+		"/Users/Moa/Downloads/ltsatool 2/ltsa.bat",
+		"/Users/Moa/Desktop/algocw2/main.cxx"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/Moa/Documents/gravitas/client/js/lib,/Users/Moa/Documents/gravitas/",
+			"/Users/Moa/Documents/gravitas/client/js/lib,/Users/Moa/Documents/gravitas/client",
+			"/Users/Moa/Documents/gravitas/client/js/lib",
+			"",
+			"/Users/Moa/Documents/gravitas/client",
+			"",
+			"<open files>,<open folders>",
+			"<open files>",
+			"",
+			"my_wol.pl",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"username",
+			"logged",
+			"sidebar",
+			"hero-unit",
+			"ko",
+			"ko.",
+			"autoStart",
+			"logInButtonText",
+			"game",
+			"bind",
+			"visible",
+			"profileVisible",
+			"loggedIn",
+			"arena_model",
+			"float",
+			"Float",
+			"float",
+			"Float",
+			"float",
+			"Float",
+			"float",
+			"Float",
+			"float",
+			"Float",
+			"float",
+			"Float",
+			"= new ArrayList<",
+			"= new HashSet<",
+			"= new ArrayList<",
+			"ArrayList<",
+			"stub",
+			"dispatcher",
+			"rmi",
+			"dispatcher",
+			"conflict",
+			"fired",
+			"*",
+			"int",
+			"loop",
+			"index lo",
+			"tree",
+			"strict",
+			"cycle",
+			"at least",
+			"at least once",
+			"at least one",
+			"reverse",
+			"guid",
+			"hash",
+			"registry",
+			"transla",
+			"peer",
+			"time serv",
+			"###",
+			"##",
+			"###",
+			"##",
+			"####",
+			"###",
+			"##",
+			"?",
+			"??",
+			"stub",
+			"BTC",
+			"type of",
+			"stub",
+			"throw",
+			"binding",
+			"Process",
+			"process",
+			"Process",
+			"process",
+			"RPC",
+			"RMI",
+			"nameserv",
+			"names",
+			"computing",
+			"Computing",
+			"  ",
+			"measure",
+			"####",
+			"assets",
+			"brown",
+			"mukerji",
+			"jones",
+			"option",
+			"earning",
+			"Contracting for agile projects\n",
+			"6.0",
+			"6.1",
+			"6.2",
+			"19.488802",
+			",",
+			"dirmod",
+			">>",
+			"iterative",
+			"iterativ",
+			"bitRevCopy",
+			"iterative",
+			"yPlot",
+			"YPlot",
+			"yPlot",
+			"YPlot",
+			"yPlot",
+			"xPlot",
+			"asthmaSeriesBuilder",
+			"  ",
+			"1",
+			".",
+			"that",
+			")",
+			")\n)",
+			")",
+			"text/javascript",
+			"earned",
+			"step into",
+			"assemblyGo",
+			"assemb",
+			"button",
+			"play",
+			"medium",
+			"td",
+			"label",
+			"userName",
+			"span",
+			"stats",
+			"form",
+			"chat"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			".",
+			"paper.",
+			"",
+			"cornersDist",
+			"BlueCount",
+			"self_preservation_points",
+			"bloodlust_points",
+			"AllowedMoves",
+			"min_list",
+			"RedAlive",
+			"BlueAlive",
+			"self_preservationMakeMove",
+			"self_preservationPoints",
+			"Player2alive",
+			"Player1alive",
+			"BlueCoint",
+			"RedCount",
+			"DrawCount",
+			"DrawTotalCount",
+			"RuncountBuffer",
+			"P2Strategy",
+			"P1Strategy"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 3315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1316,
+								1316
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+								"python"
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 892.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/controller.js",
+					"settings":
+					{
+						"buffer_size": 647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								375,
+								375
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+								"python"
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"client/index.html"
+			],
+			[
+				"index",
+				"client/index.html"
+			],
+			[
+				"stat",
+				"statics.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 191.0,
+	"status_bar_visible": true
+}

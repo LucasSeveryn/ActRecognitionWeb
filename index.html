@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>ActRecognitionWeb</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/jquery.js"></script>
+  <!-- // <script src="js/bootstrap.min.js"></script> -->
+  <script src="js/angular.js"></script>
+  <script src="js/controller.js"></script>
+  <!-- // <script src="js/mongolabResourceHttp.js"></script> -->
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <style type='text/css'>
+  body, html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+  }
+  body {
+    background-color: #FFF;
+    background-image: url('img/footsteps.jpg');
+  }
+  #login-screen
+  {
+    background-image: url('img/login_background.jpg');
+    padding-top: 40px;
+    height: 100%;
+    padding: 60px;
+    padding-right: 200px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+  }
+  #small-screen
+  {
+
+  }
+
+  .container-fluid
+  {
+   padding-top: 40px;
+   height: 100%;
+   padding: 60px;
+   padding-right: 200px;
+   margin-bottom: 30px;
+   font-size: 18px;
+   font-weight: 200;
+   line-height: 30px;
+ }
+
+ #login-sidebar
+ {
+  text-align: right;
+  opacity:0.8;
+  padding-top: 10%;
+
+}
+.navbar .brand
+{
+  padding-left: 30px;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: inherit;
+}
+
+</style>
+</head>
+<body ng-controller="Ctrl">
+  <div class="container">
+    <div class='navbar navbar-inverse navbar-fixed-top'>
+      <div class='navbar-inner' style="height: auto;" >
+        <a class="brand" href="#">ActRecognition</a>
+        <ul class="nav" ng-show="loggedIn">
+          <li class="active"><a href="#">Summary</a></li>
+          <li><a href="#">Challenges</a></li>
+          <li><a href="#">Routes</a></li>
+        </li>
+      </ul>
+      <ul class="nav pull-right" ng-show="loggedIn">
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-user icon-white"></i> {{userName}} {{userSurname}}
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" href="#">Settings</a></li>
+            <li class="divider"></li>
+            <li><a tabindex="-1" href="#">Log Out</a></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="container-fluid" id="login-screen" ng-show="!loggedIn">
+    <div class="row-fluid">
+      <div class="span10">
+        <h1>Log in</h1>
+        <p>To see your daily, weekly and overall statistics</p>
+      </div>
+      <div class="span2" id="login-sidebar">
+        <div class="login-form">
+          <!-- <form> -->
+          <fieldset>
+            <div class="clearfix">
+              <input type="text" placeholder="Username"  ng-model="loginUsername" tabindex="1">
+            </div>
+            <div class="clearfix">
+              <input type="password" placeholder="Password" ng-model="loginPassword" tabindex="2">
+            </div>
+            <button class="btn primary" ng-click="logIn()" tabindex="3">Log in <i class="icon-arrow-right"></i></button>
+          </fieldset>
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid" id="small-screen"  ng-show="loggedIn">
+    <div class="row-fluid">
+      <div class="span10">
+        <h1>Hello {{userName}} </h1>
+        <p>Your userid is: {{userId}}</p>
+      </div>
+      <div class="span2" id="login-sidebar">
+        Small span
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
