@@ -1,6 +1,10 @@
 App.controller('Ctrl', function ($scope, $http){
 
+  /*
 
+  DATE MANIPULATION UTILITY FUNCTIONS
+
+  */
   var dates = {
       convert:function(d) {
           // Converts the date in d to a date-object. The input can be:
@@ -53,6 +57,13 @@ App.controller('Ctrl', function ($scope, $http){
       }
   };
 
+  /*
+
+  CONTROLLER CODE
+
+  */
+
+
   $scope.loginUsername = "";
   $scope.loginPassword = "";
   $scope.userName="";
@@ -62,9 +73,10 @@ App.controller('Ctrl', function ($scope, $http){
   $scope.apiKey = "Ix7evhXTw3uwk1gDHCvzz-uMNEhOy8ZN";
 
   //Summary
-  $scope.typeDistribution = [];
+  $scope.typeDistributions = [];
   $scope.pickedDate = null;
   $scope.dailyResults = [];
+  $scope.resultsDisplayed = false;
 
   //Page switching
   $scope.resultsVisible = true;
@@ -120,6 +132,17 @@ App.controller('Ctrl', function ($scope, $http){
   // }
   ];
 
+$scope.countToTime = function(d) {
+    var h, m, s;
+    d = d * 5;
+    d = Number(d) || 0;
+    h = Math.floor(d / 3600);
+    m = Math.floor(d % 3600 / 60);
+    s = Math.floor(d % 3600 % 60);
+    return (h > 0 ? h + ":" : "") + (m > 0 ? (m < 10 ? "0" : "") + m + ":" : "0:") + (s < 10 ? "0" : "") + s;
+};
+
+
 $scope.calculateDailyTypeDistribution = function (){
   var dailyResultsArray=[];
   for (var i = 0; i < $scope.results.length; i++) {
@@ -132,6 +155,15 @@ $scope.calculateDailyTypeDistribution = function (){
     tempTypeDistribution.push($scope.typeCount(j,dailyResultsArray));
   }
   $scope.typeDistribution=tempTypeDistribution;
+  var sum = 0;
+  for(var k=0;k<tempTypeDistribution.length;k++){
+    sum = sum + tempTypeDistribution[k];
+  }
+  if(sum>0){
+    $scope.resultsDisplayed=true;
+  }else{
+    $scope.resultsDisplayed=false;
+  }
 };
 
 
@@ -160,6 +192,34 @@ $scope.typeCount = function(type,array){
     }
   }
   return count;
+};
+
+$scope.typeToString = function(type){
+  switch (type) {
+      case 0:
+        return "Walking (0)";
+      case 1:
+        return "Fast Walking (1)";
+      case 2:
+        return "Walking up the stairs (2)";
+      case 3:
+        return "Walking down the stairs (3)";
+      case 4:
+        return "Sitting (4)";
+      case 5:
+        return "Standing up (5)";
+      case 6:
+        return "Jumping (6)";
+      case 7:
+        return "Test: Wave Sideways (7)";
+      case 8:
+        return "Test: Wave Forward (8)";
+      case 9:
+        return "Test: Unidentified (9)";
+      default:
+        return "Unspecified";
+
+      }
 };
 
 $scope.totalTypeCount = function(type){

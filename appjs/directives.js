@@ -16,10 +16,7 @@ App.directive('chart', function(){
               sum = sum + v[i];
             }
             if(sum>0){
-
-
-              r = Raphael("pie"),
-              pie = r.piechart(120, 120, 90, v, { legend: ["%% - Walking (0)", "%% - Fast Walking (1)", "%% - Walking up the stairs (2)", "%% - Walking down the stairs (3)", "%% - Sitting (4)", "%% - Standing (5)", "%% - Jumping (6)"]});
+              pie = r.piechart(120, 120, 90, v, { legend: ["%% - Walking (0)", "%% - Fast Walking (1)", "%% - Walking up the stairs (2)", "%% - Walking down the stairs (3)", "%% - Sitting (4)", "%% - Standing (5)", "%% - Jumping (6)"], legendpos: "east" });
               pie.hover(function () {
                   this.sector.stop();
                   this.sector.scale(1.1, 1.1, this.cx, this.cy);

@@ -7,6 +7,11 @@ body, html {
     background-color: #FFF;
     background-image: url('img/footsteps.jpg');
   }
+  #alignbottom{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
   .table{
     background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f2f2f2));
     background:-moz-linear-gradient(100% 100% 90deg, #f2f2f2, #fff);
