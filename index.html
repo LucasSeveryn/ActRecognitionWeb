@@ -7,12 +7,18 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/angular.js"></script>
   <script src="js/controller.js"></script>
+  <script src="js/raphael.js"></script>
+  <script src="js/g.raphael.js"></script>
+  <script src="js/g.pie.js"></script>
   <script src="http://localhost:8001/vogue-client.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/ondocumentready.js"></script>
-  <!-- // <script src="js/mongolabResourceHttp.js"></script> -->
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="style.css" rel="stylesheet" media="screen">
+  <!-- reset-->
+  <!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css"> -->
+
+
 
 </head>
 <body ng-controller="Ctrl">
@@ -21,8 +27,8 @@
       <div class='navbar-inner' style="height: auto;" >
         <a class="brand" href="#">ActRecognition</a>
         <ul class="nav" ng-show="loggedIn">
-          <li class="active"><a href="#">Classification Results</a></li>
-          <li><a href="#">Challenges</a></li>
+          <li class="active"><a href="#" ng-click="goToResults()">Classification Results</a></li>
+          <li><a href="#" ng-click="goToSummary()">Summary</a></li>
           <li><a href="#">Routes</a></li>
         </li>
       </ul>
@@ -67,84 +73,114 @@
     </div>
   </div>
 
-  <!-- #1 SUMMARY SCREEN -->
+  <!-- #MAIN PAGE -->
   <div class="container-fluid" ng-show="loggedIn">
-    <div class="row-fluid">
-      <div class="span10">
-        <h1>Hello {{userName}} </h1>
-        <p style="font-size: 18px;">Your userid is: {{userId}}</p>
-      </div>
-      <div class="span2" id="login-sidebar">
-        <div id="summary content">
+
+    <!-- #Results screen -->
+    <div ng-show="resultsVisible">
+      <div class="row-fluid">
+        <div class="span10">
+          <h1>Hello {{userName}} </h1>
+          <p style="font-size: 18px;">Your userid is: {{userId}}</p>
+        </div>
+        <div class="span2" id="login-sidebar">
+          <div id="summary content">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row-fluid" id="classification-data">
-      <div class="span4">
-        <table class="table table-bordered">
-          <thead>
-            <th>Type</th>
-            <th>Count</th>
-          </thead>
-          <tr>
-            <td>0</td>
-            <td>{{typeCount(0)}}</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>{{typeCount(1)}}</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>{{typeCount(2)}}</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>{{typeCount(3)}}</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>{{typeCount(4)}}</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>{{typeCount(5)}}</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>{{typeCount(6)}}</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>{{typeCount(7)}}</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>{{typeCount(8)}}</td>
-          </tr>
-        </table>
-      </div>
-      <div class="span8" id="summary-content">
-        <div id="classification-table">
-          <table style="width: 300px" cellpadding="0" cellspacing="0">
-          <tr>
-            <td>Column 1</td>
-            <td>Column 2</td>
-          </tr>
-          </table>
-          <table class="table table-bordered table-fixed-header" id="resultsTable">
-            <thead class="header">
-              <th>Classification</th>
-              <th>Date</th>
+      <div class="row-fluid">
+        <div class="span2">
+          <table class="table table-bordered">
+            <thead>
+              <th>Type</th>
+              <th>Count</th>
             </thead>
-            <tr ng-repeat="result in results">
-              <td>{{result.result}}</td>
-              <td>{{result.date}}</td>
+            <tr>
+              <td>0</td>
+              <td>{{typeCount(0)}}</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>{{typeCount(1)}}</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>{{typeCount(2)}}</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>{{typeCount(3)}}</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>{{typeCount(4)}}</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>{{typeCount(5)}}</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>{{typeCount(6)}}</td>
             </tr>
           </table>
         </div>
+        <div class="span10" id="summary-content">
+          <div id="classification-table">
+            <table class="table table-bordered" id="resultsTable">
+              <thead>
+                <th>Type</th>
+                <th>Date</th>
+                <th> #0 </th>
+                <th> #1 </th>
+                <th> #2 </th>
+                <th> #3 </th>
+                <th> #4 </th>
+                <th> #5 </th>
+                <th> #6 </th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="result in results">
+                  <td>{{result.result}}</td>
+                  <td>{{result.date}}</td>
+                  <td> {{result.p[0]|number:3}} </td>
+                  <td> {{result.p[1]|number:3}} </td>
+                  <td> {{result.p[2]|number:3}} </td>
+                  <td> {{result.p[3]|number:3}} </td>
+                  <td> {{result.p[4]|number:3}} </td>
+                  <td> {{result.p[5]|number:3}} </td>
+                  <td> {{result.p[6]|number:3}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-</html>
+
+
+    <!-- Summary screen -->
+    <div id="summary-screen" ng-show="summaryVisible">
+      <div class="row-fluid">
+        <div class="span4">
+          <h1>Summary</h1>
+          <div id="pie" ng-show="alwaysTrue"></div>
+        </div>
+        <div class="span2" id="login-sidebar">
+          <div>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span8">
+          <!-- small content -->
+        </div>
+        <div class="span10" id="summary-content">
+          <div id="classification-table">
+           <!-- large content -->
+        </div>
+      </div>
+    </div>
+
+  </body>
+  </html>
