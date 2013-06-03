@@ -16,11 +16,12 @@ App.controller('Ctrl', function ($scope, $http, $timeout){
   //RealTime
   $scope.realTimeActive = false;
   $scope.realTimeResult = "Not activated";
+  $scope.realTimeResultAge = null;
 
   //Page switching
-  $scope.resultsVisible = false;
+  $scope.resultsVisible = true;
   $scope.summaryVisible = false;
-  $scope.realtimeVisible = true;
+  $scope.realtimeVisible = false;
 
 
   $scope.goToResults = function(){
@@ -96,6 +97,7 @@ $scope.results = [
             var newest = data[0];
             $scope.realTimeResult=$scope.typeToString(newest.result);
             $scope.realTimeTimestamp=newest.date;
+            $scope.realTimeResultAge=$scope.msToTime(Math.abs(new Date() - dates.convert(newest.date)));
           }
         }
         );
@@ -128,6 +130,15 @@ $scope.results = [
     return (h > 0 ? h + ":" : "") + (m > 0 ? (m < 10 ? "0" : "") + m + ":" : "0:") + (s < 10 ? "0" : "") + s;
   };
 
+  $scope.msToTime = function(d) {
+    var h, m, s;
+    d = d / 1000; //12.8 seconds full sample size, every 6.4 classification is performed.
+    d = Number(d) || 0;
+    h = Math.floor(d / 3600);
+    m = Math.floor(d % 3600 / 60);
+    s = Math.floor(d % 3600 % 60);
+    return (h > 0 ? h + ":" : "") + (m > 0 ? (m < 10 ? "0" : "") + m + ":" : "0:") + (s < 10 ? "0" : "") + s;
+  };
 
 
   $scope.toggleText = function(){
@@ -141,7 +152,7 @@ $scope.results = [
   $scope.calculateDailyTypeDistribution = function (){
     var dailyResultsArray=[];
     for (var i = 0; i < $scope.results.length; i++) {
-      if(dates.compare($scope.results[i].date,$scope.pickedDate)===0){
+      if(dates.compareDays($scope.results[i].date,$scope.pickedDate)===0){
         dailyResultsArray.push($scope.results[i]);
       }
     }
@@ -256,26 +267,45 @@ DATE MANIPULATION UTILITY FUNCTIONS
 
 */
 var dates = {
-  convert:function(d) {
-        // Converts the date in d to a date-object. The input can be:
-        //   a date object: returned without modification
-        //  an array      : Interpreted as [year,month,day]. NOTE: month is 0-11.
-        //   a number     : Interpreted as number of milliseconds
-        //                  since 1 Jan 1970 (a timestamp)
-        //   a string     : Any format supported by the javascript engine, like
-        //                  "YYYY/MM/DD", "MM/DD/YYYY", "Jan 31 2009" etc.
-        //  an object     : Interpreted as an object with year, month and date
-        //                  attributes.  **NOTE** month is 0-11.
-        return (
-          d.constructor === Date ? d.setHours(0,0,0,0) :
-          d.constructor === Array ? new Date(d[0],d[1],d[2]).setHours(0,0,0,0) :
-          d.constructor === Number ? new Date(d).setHours(0,0,0,0) :
-          d.constructor === String ? new Date(d).setHours(0,0,0,0) :
-          typeof d === "object" ? new Date(d.year,d.month,d.date).setHours(0,0,0,0) :
-          NaN
-          );
-      },
-      compare:function(a,b) {
+          convert:function(d) {
+            // Converts the date in d to a date-object. The input can be:
+            //   a date object: returned without modification
+            //  an array      : Interpreted as [year,month,day]. NOTE: month is 0-11.
+            //   a number     : Interpreted as number of milliseconds
+            //                  since 1 Jan 1970 (a timestamp)
+            //   a string     : Any format supported by the javascript engine, like
+            //                  "YYYY/MM/DD", "MM/DD/YYYY", "Jan 31 2009" etc.
+            //  an object     : Interpreted as an object with year, month and date
+            //                  attributes.  **NOTE** month is 0-11.
+            return (
+              d.constructor === Date ? d :
+              d.constructor === Array ? new Date(d[0],d[1],d[2]) :
+              d.constructor === Number ? new Date(d) :
+              d.constructor === String ? new Date(d) :
+              typeof d === "object" ? new Date(d.year,d.month,d.date) :
+              NaN
+              );
+          },
+          convertDays:function(d) {
+            // Converts the date in d to a date-object. The input can be:
+            //   a date object: returned without modification
+            //  an array      : Interpreted as [year,month,day]. NOTE: month is 0-11.
+            //   a number     : Interpreted as number of milliseconds
+            //                  since 1 Jan 1970 (a timestamp)
+            //   a string     : Any format supported by the javascript engine, like
+            //                  "YYYY/MM/DD", "MM/DD/YYYY", "Jan 31 2009" etc.
+            //  an object     : Interpreted as an object with year, month and date
+            //                  attributes.  **NOTE** month is 0-11.
+            return (
+              d.constructor === Date ? d.setHours(0,0,0,0) :
+              d.constructor === Array ? new Date(d[0],d[1],d[2]).setHours(0,0,0,0) :
+              d.constructor === Number ? new Date(d).setHours(0,0,0,0) :
+              d.constructor === String ? new Date(d).setHours(0,0,0,0) :
+              typeof d === "object" ? new Date(d.year,d.month,d.date).setHours(0,0,0,0) :
+              NaN
+              );
+          },
+          compare:function(a,b) {
         // Compare two dates (could be of any type supported by the convert
         // function above) and returns:
         //  -1 : if a < b
@@ -286,6 +316,21 @@ var dates = {
         return (
           isFinite(a=this.convert(a).valueOf()) &&
           isFinite(b=this.convert(b).valueOf()) ?
+          (a>b)-(a<b) :
+          NaN
+          );
+      },
+      compareDays:function(a,b) {
+        // Compare two dates (could be of any type supported by the convert
+        // function above) and returns:
+        //  -1 : if a < b
+        //   0 : if a = b
+        //   1 : if a > b
+        // NaN : if a or b is an illegal date
+        // NOTE: The code inside isFinite does an assignment (=).
+        return (
+          isFinite(a=this.convertDays(a).valueOf()) &&
+          isFinite(b=this.convertDays(b).valueOf()) ?
           (a>b)-(a<b) :
           NaN
           );
