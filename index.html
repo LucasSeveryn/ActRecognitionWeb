@@ -4,22 +4,23 @@
   <title>ActRecognitionWeb</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/angular.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/ui-bootstrap-tpls-0.3.0.js"></script>
   <script src="js/raphael.js"></script>
   <script src="js/g.raphael.js"></script>
   <script src="js/g.pie.js"></script>
   <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
   <script src="http://localhost:8001/vogue-client.js" type="text/javascript"></script>
-  <!-- Bootstrap -->
+    <!-- App-->
+  <script src="appjs/app.js"></script>
+  <script src="appjs/controllers.js"></script>
+  <script src="appjs/directives.js"></script>
+  <!-- Css -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="css/datepicker.css" rel="stylesheet" media="screen">
   <link href="style.css" rel="stylesheet" media="screen">
 
-  <!-- App-->
-  <script src="appjs/app.js"></script>
-  <script src="appjs/controllers.js"></script>
-  <script src="appjs/directives.js"></script>
 
   <!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css"> -->
 
@@ -46,7 +47,7 @@
           <ul class="dropdown-menu">
             <li><a tabindex="-1" href="#">Settings</a></li>
             <li class="divider"></li>
-            <li><a tabindex="-1" href="#">Log Out</a></li>
+            <li><a tabindex="-1" href="#" ng-click="logOut()">Log Out</a></li>
           </ul>
         </ul>
       </div>
@@ -58,7 +59,7 @@
     <div class="row-fluid">
       <div class="span10" id="login-page-left">
         <h1>Log in</h1>
-        <p>To see your daily, weekly and overall statistics</p>
+        <p>To see your statistics and watch in real time</p>
       </div>
       <div class="span2">
         <div class="login-form" id="login-form">
@@ -262,18 +263,26 @@
             <h1>Real time display</h1>
             <p>Show activities in real time</p>
             <p style="text-align: right;">
-              <a class="btn  btn-large" ng-class="{'btn-danger': realTimeActive, 'btn-success': !realTimeActive}" ng-click="toggleRealTime()">
-                <i class=" icon-eye-open icon-white"></i> {{toggleText()}}
+              <a class="btn  btn-large" ng-class="{'btn-danger': realTimeActive, 'btn-success': !realTimeActive}" ng-click="toggleRealTime()"><i class="icon-eye-open icon-white"></i>  {{toggleText()}}
               </a>
             </p>
-          </div>
-        </div>
-        <div class="span4">
-          <div >
 
           </div>
         </div>
-        <div class="span4">
+        <div class="span6">
+          <div class="well" style="text-align: center;">
+            <h1>
+              {{realTimeResult}}
+            </h1>
+            <p>
+              {{realTimeTimestamp}}
+            </p>
+          </div>
+          <div class="well" style="padding-top: 30px">
+            <progress class="progress progress-success" value="realTimeTickCounter"></progress>
+          </div>
+        </div>
+        <div class="span6">
           <div >
 
           </div>

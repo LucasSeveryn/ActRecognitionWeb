@@ -15,11 +15,12 @@ App.controller('Ctrl', function ($scope, $http, $timeout){
 
   //RealTime
   $scope.realTimeActive = false;
+  $scope.realTimeResult = "Not activated";
 
   //Page switching
   $scope.resultsVisible = false;
-  $scope.summaryVisible = true;
-  $scope.realtimeVisible = false;
+  $scope.summaryVisible = false;
+  $scope.realtimeVisible = true;
 
 
   $scope.goToResults = function(){
@@ -41,6 +42,13 @@ App.controller('Ctrl', function ($scope, $http, $timeout){
 };
 
 
+$scope.logOut = function(){
+  // alert("ping");
+  $scope.loggedIn=false;
+  $scope.userName='';
+  $scope.userSurname='';
+  $scope.userId='';
+};
 
 $scope.logIn = function() {
   var url = "https://api.mongolab.com/api/1/databases/activity_recognition/collections/users?q={%22username%22:%20%22" + $scope.loginUsername + "%22,%22password%22:%22" + $scope.loginPassword + "%22}&apiKey=" + $scope.apiKey;
@@ -53,6 +61,8 @@ $scope.logIn = function() {
         $scope.userSurname=user.surname;
         $scope.userId=user.userid;
         $scope.loadResults();
+        $scope.loginUsername='';
+        $scope.loginPassword='';
       }
     }
     );
@@ -73,11 +83,29 @@ $scope.results = [
   ];
 
   $scope.loadRealTimeResult = function(){
-    alert("ping");
-    mytimeout = $timeout($scope.loadRealTimeResult,3000);
+    $scope.realTimeTickCounter=$scope.realTimeTickCounter+1;
+    var type;
+    var value = $scope.realTimeTickCounter;
+    $scope.dynamic = (value);
+    if(($scope.realTimeTickCounter % 100)===0){
+      var url= "https://api.mongolab.com/api/1/databases/activity_recognition/collections/classification_results?s={%22_id%22:%20-1}&l=1&f={%22result%22:%201,%22date%22:%201}&apiKey="+$scope.apiKey;
+      // var url= "https://api.mongolab.com/api/1/databases/activity_recognition/collections/classification_results?s={%22date%22:%201}&l=1&apiKey="+$scope.apiKey;
+      $http.get(url).success(
+        function(data, status, headers, config) {
+          if(data.length==1){
+            var newest = data[0];
+            $scope.realTimeResult=$scope.typeToString(newest.result);
+            $scope.realTimeTimestamp=newest.date;
+          }
+        }
+        );
+      $scope.realTimeTickCounter=0;
+    }
+    mytimeout = $timeout($scope.loadRealTimeResult,30);
   };
 
   var mytimeout = null;
+  $scope.realTimeTickCounter=0;
 
   $scope.toggleRealTime = function(){
     if($scope.realTimeActive===true){
@@ -85,13 +113,14 @@ $scope.results = [
       $timeout.cancel(mytimeout);
     }else{
       $scope.realTimeActive=true;
-      mytimeout = $timeout($scope.loadRealTimeResult,3000);
+      $scope.realTimeResult="Connecting...";
+      mytimeout = $timeout($scope.loadRealTimeResult,30);
     }
   };
 
   $scope.countToTime = function(d) {
     var h, m, s;
-    d = d * 5;
+    d = d * 6.4; //12.8 seconds full sample size, every 6.4 classification is performed.
     d = Number(d) || 0;
     h = Math.floor(d / 3600);
     m = Math.floor(d % 3600 / 60);
