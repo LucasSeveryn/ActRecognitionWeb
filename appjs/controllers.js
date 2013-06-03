@@ -95,9 +95,16 @@ $scope.results = [
         function(data, status, headers, config) {
           if(data.length==1){
             var newest = data[0];
-            $scope.realTimeResult=$scope.typeToString(newest.result);
-            $scope.realTimeTimestamp=newest.date;
-            $scope.realTimeResultAge=$scope.msToTime(Math.abs(new Date() - dates.convert(newest.date)));
+            var ageinms=Math.abs(new Date() - dates.convert(newest.date));
+            if(ageinms<6000){
+              $scope.realTimeResultAge=$scope.msToTime(ageinms);
+              $scope.realTimeResult=$scope.typeToString(newest.result);
+              $scope.realTimeTimestamp=newest.date;
+            }else{
+              $scope.realTimeResult="No broadcast detected";
+              $scope.realTimeResultAge="no broadcast"
+            }
+
           }
         }
         );
