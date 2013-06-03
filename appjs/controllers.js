@@ -88,7 +88,7 @@ $scope.results = [
     var value = $scope.realTimeTickCounter;
     $scope.dynamic = (value);
     if(($scope.realTimeTickCounter % 100)===0){
-      var url= "https://api.mongolab.com/api/1/databases/activity_recognition/collections/classification_results?s={%22_id%22:%20-1}&l=1&f={%22result%22:%201,%22date%22:%201}&apiKey="+$scope.apiKey;
+      var url= "https://api.mongolab.com/api/1/databases/activity_recognition/collections/classification_results?q={%22userid%22:%20"+$scope.userId+"}&s={%22_id%22:%20-1}&l=1&f={%22result%22:%201,%22date%22:%201}&apiKey="+$scope.apiKey;
       // var url= "https://api.mongolab.com/api/1/databases/activity_recognition/collections/classification_results?s={%22date%22:%201}&l=1&apiKey="+$scope.apiKey;
       $http.get(url).success(
         function(data, status, headers, config) {
