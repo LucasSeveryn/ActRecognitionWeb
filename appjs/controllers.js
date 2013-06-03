@@ -96,13 +96,14 @@ $scope.results = [
           if(data.length==1){
             var newest = data[0];
             var ageinms=Math.abs(new Date() - dates.convert(newest.date));
-            if(ageinms<6000){
+            // alert(ageinms + " age: "+ $scope.msToTime(ageinms) + "date" + newest.date);
+            if(ageinms<60000){//1 minute cutoff
               $scope.realTimeResultAge=$scope.msToTime(ageinms);
               $scope.realTimeResult=$scope.typeToString(newest.result);
               $scope.realTimeTimestamp=newest.date;
             }else{
               $scope.realTimeResult="No broadcast detected";
-              $scope.realTimeResultAge="no broadcast"
+              $scope.realTimeResultAge="no broadcast";
             }
 
           }
