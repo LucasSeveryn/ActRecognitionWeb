@@ -130,7 +130,7 @@ $scope.results = [
 
   $scope.countToTime = function(d) {
     var h, m, s;
-    d = d * 6.4; //12.8 seconds full sample size, every 6.4 classification is performed.
+    d = d * 3.25; //12.8 seconds full sample size, every 6.4 classification is performed.
     d = Number(d) || 0;
     h = Math.floor(d / 3600);
     m = Math.floor(d % 3600 / 60);
