@@ -7,6 +7,21 @@ App.controller('Ctrl', function ($scope, $http, $timeout){
   $scope.userId = 0;
   $scope.apiKey = "Ix7evhXTw3uwk1gDHCvzz-uMNEhOy8ZN";
 
+  //All results page
+  $scope.results = [
+  // {date: "May 31, 2013 5:51:45 PM",
+  // p: [
+  // -848.5727069759712,
+  // -280.8045515994242,
+  // -30.86754679639256,
+  // -75.21763730225379,
+  // 0,
+  // 0
+  // ],
+  // result: 2
+  // }
+  ];
+
   //Summary
   $scope.typeDistributions = [];
   $scope.pickedDate = null;
@@ -49,6 +64,7 @@ $scope.logOut = function(){
   $scope.userName='';
   $scope.userSurname='';
   $scope.userId='';
+  $scope.results=[];
 };
 
 $scope.logIn = function() {
@@ -69,19 +85,7 @@ $scope.logIn = function() {
     );
 };
 
-$scope.results = [
-  // {date: "May 31, 2013 5:51:45 PM",
-  // p: [
-  // -848.5727069759712,
-  // -280.8045515994242,
-  // -30.86754679639256,
-  // -75.21763730225379,
-  // 0,
-  // 0
-  // ],
-  // result: 2
-  // }
-  ];
+
 
   $scope.loadRealTimeResult = function(){
     $scope.realTimeTickCounter=$scope.realTimeTickCounter+1;
