@@ -269,6 +269,16 @@ $scope.logIn = function() {
     return (h > 0 ? h + " hours " : "") + (m > 0 ? (m < 10 ? "" : "") + m + " minutes " : "") + " and " + (s < 10 ? "" : "") + s + " seconds";
   };
 
+  $scope.countToTime3 = function(d) {
+    var h, m, s;
+    d = d * 3.25; //12.8 seconds full sample size, every 6.4 classification is performed.
+    d = Number(d) || 0;
+    h = Math.floor(d / 3600);
+    m = Math.floor(d % 3600 / 60);
+    s = Math.floor(d % 3600 % 60);
+    return (h > 0 ? h + "h" : "") + (m > 0 ? (m < 10 ? "" : "") + m + "m " : "") + "" + (s < 10 ? "" : "") + s + "s";
+  };
+
   $scope.msToTime = function(d) {
     var h, m, s;
     d = d / 1000; //12.8 seconds full sample size, every 6.4 classification is performed.
