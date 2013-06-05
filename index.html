@@ -1,219 +1,206 @@
 <!DOCTYPE html>
 <html ng-app='App'>
-<head>
-  <title>ActRecognitionWeb</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="js/jquery.js"></script>
-  <script src="js/angular.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/ui-bootstrap-tpls-0.3.0.js"></script>
-  <script src="js/raphael.js"></script>
-  <script src="js/g.raphael.js"></script>
-  <script src="js/g.pie.js"></script>
-  <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
-  <script src="http://localhost:8001/vogue-client.js" type="text/javascript"></script>
+  <head>
+    <title>ActRecognitionWeb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.3.0.js"></script>
+    <script src="js/raphael.js"></script>
+    <script src="js/g.raphael.js"></script>
+    <script src="js/g.pie.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <!-- // <script src="http://localhost:8001/vogue-client.js" type="text/javascript"></script> -->
+    <script type="text/javascript" src="js/JsSimpleDateFormat.js"></script>
     <!-- App-->
-  <script src="appjs/app.js"></script>
-  <script src="appjs/controllers.js"></script>
-  <script src="appjs/directives.js"></script>
-  <!-- Css -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="css/datepicker.css" rel="stylesheet" media="screen">
-  <link href="style.css" rel="stylesheet" media="screen">
-
-
-  <!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css"> -->
-
-
-
-</head>
-<body ng-controller="Ctrl">
-  <div class="container">
-    <div class='navbar navbar-inverse navbar-fixed-top'>
-      <div class='navbar-inner' style="height: auto;" >
-        <a class="brand" href="#">ActRecognition</a>
-        <ul class="nav" ng-show="loggedIn">
-          <li ng-class="{active: resultsVisible}"><a href="#" ng-click="goToResults()">Classification Results</a></li>
-          <li ng-class="{active: summaryVisible}"><a href="#" ng-click="goToSummary()">Summary</a></li>
-          <li ng-class="{active: realtimeVisible}"><a href="#" ng-click="goToRealtime()">Real Time</a></li>
-        </li>
-      </ul>
-      <ul class="nav pull-right" ng-show="loggedIn">
-        <li class="dropdown" >
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="icon-user icon-white"></i> {{userName}} {{userSurname}}
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#">Settings</a></li>
-            <li class="divider"></li>
-            <li><a tabindex="-1" href="#" ng-click="logOut()">Log Out</a></li>
+    <script src="appjs/app.js"></script>
+    <script src="appjs/controllers.js"></script>
+    <script src="appjs/directives.js"></script>
+    <!-- Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
+    <link href="css/datepicker.css" rel="stylesheet" media="screen"></link>
+    <link href="style.css" rel="stylesheet" media="screen"></link>
+    <!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css"> -->
+  </head>
+  <body ng-controller="Ctrl">
+    <div class="container">
+      <div class='navbar navbar-inverse navbar-fixed-top'>
+        <div class='navbar-inner' style="height: auto;" >
+          <a class="brand" href="#">ActRecognition</a>
+          <ul class="nav" ng-show="loggedIn">
+            <li ng-class="{active: resultsVisible}"><a href="#" ng-click="goToResults()">Classification Results</a></li>
+            <li ng-class="{active: summaryVisible}"><a href="#" ng-click="goToSummary()">Summary</a></li>
+            <li ng-class="{active: realtimeVisible}"><a href="#" ng-click="goToRealtime()">Real Time</a></li>
+            <li ng-class="{active: leaderboardVisible}"><a href="#" ng-click="goToLeaderboard()">Leaderboard</a></li>
           </ul>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- #0 LOGIN SCREEN -->
-  <div class="container-fluid" id="login-page" ng-show="!loggedIn">
-    <div class="row-fluid">
-      <div class="span10" id="login-page-left">
-        <h1>Log in</h1>
-        <p>To see your statistics and watch in real time</p>
-      </div>
-      <div class="span2">
-        <div class="login-form" id="login-form">
-          <form action="">
-            <fieldset>
-              <div class="clearfix">
-                <input type="text" placeholder="Username"  ng-model="loginUsername" tabindex="1">
-              </div>
-              <div class="clearfix">
-                <input type="password" placeholder="Password" ng-model="loginPassword" tabindex="2">
-              </div>
-              <button class="btn btn-success" type="submit" ng-click="logIn()" tabindex="3">Log in <i class="icon-arrow-right icon-white"></i></button>
-            </fieldset>
-          </form>
+          <ul class="nav pull-right" ng-show="loggedIn">
+            <li class="dropdown" >
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-user icon-white"></i> {{userName}} {{userSurname}}
+              <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a tabindex="-1" href="#">Settings</a></li>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="#" ng-click="logOut()">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- #MAIN PAGE -->
-  <div class="container-fluid" ng-show="loggedIn">
-
-    <!-- #Results screen -->
-    <div ng-show="resultsVisible">
+    <!-- #0 LOGIN SCREEN -->
+    <div class="container-fluid" id="login-page" ng-show="!loggedIn">
       <div class="row-fluid">
-        <div class="span10">
-          <h1>Hello {{userName}} </h1>
-          <p style="font-size: 18px;">Your userid is: {{userId}}</p>
+        <div class="span10" id="login-page-left">
+          <h1>Log in</h1>
+          <p>To see your statistics and watch in real time</p>
         </div>
-        <div class="span2" id="login-sidebar">
-          <div id="summary content">
+        <div class="span2">
+          <div class="login-form" id="login-form">
+            <form action="">
+              <fieldset>
+                <div class="clearfix">
+                  <input type="text" placeholder="Username"  ng-model="loginUsername" tabindex="1"></input>
+                </div>
+                <div class="clearfix">
+                  <input type="password" placeholder="Password" ng-model="loginPassword" tabindex="2"></input>
+                </div>
+                <button class="btn btn-success" type="submit" ng-click="logIn()" tabindex="3">Log in <i class="icon-arrow-right icon-white"></i></button>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
-        <div class="span2">
-          <table class="table table-bordered">
-            <thead>
-              <th>Type</th>
-              <th>Count</th>
-            </thead>
-            <tr>
-              <td>0</td>
-              <td>{{totalTypeCount(0)}}</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>{{totalTypeCount(1)}}</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>{{totalTypeCount(2)}}</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>{{totalTypeCount(3)}}</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>{{totalTypeCount(4)}}</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>{{totalTypeCount(5)}}</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>{{totalTypeCount(6)}}</td>
-            </tr>
-          </table>
+    </div>
+    <!-- #MAIN PAGE -->
+    <div class="container-fluid" ng-show="loggedIn">
+      <!-- #Results screen -->
+      <div ng-show="resultsVisible">
+        <div class="row-fluid">
+          <div class="span10">
+            <h1>Hello {{userName}} </h1>
+            <p style="font-size: 18px;">Your userid is: {{userId}}</p>
+          </div>
+          <div class="span2" id="login-sidebar">
+            <div id="summary content">
+            </div>
+          </div>
         </div>
-        <div class="span10" id="summary-content">
-          <div id="classification-table">
-            <table class="table table-bordered" id="resultsTable">
+        <div class="row-fluid">
+          <div class="span2">
+            <table class="table table-bordered">
               <thead>
                 <th>Type</th>
-                <th>Date</th>
-                <th> #0 </th>
-                <th> #1 </th>
-                <th> #2 </th>
-                <th> #3 </th>
-                <th> #4 </th>
-                <th> #5 </th>
-                <th> #6 </th>
+                <th>Count</th>
+              </thead>
+              <tr>
+                <td>0</td>
+                <td>{{totalTypeCount(0)}}</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>{{totalTypeCount(1)}}</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>{{totalTypeCount(2)}}</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>{{totalTypeCount(3)}}</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>{{totalTypeCount(4)}}</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>{{totalTypeCount(5)}}</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>{{totalTypeCount(6)}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="span10" id="summary-content">
+            <div id="classification-table">
+              <table class="table table-bordered" id="resultsTable">
+                <thead>
+                  <th>Type</th>
+                  <th>Date</th>
+                  <th> #0 </th>
+                  <th> #1 </th>
+                  <th> #2 </th>
+                  <th> #3 </th>
+                  <th> #4 </th>
+                  <th> #5 </th>
+                  <th> #6 </th>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="result in results">
+                    <td>{{result.result}}</td>
+                    <td>{{result.date}}</td>
+                    <td> {{result.p[0]|number:3}} </td>
+                    <td> {{result.p[1]|number:3}} </td>
+                    <td> {{result.p[2]|number:3}} </td>
+                    <td> {{result.p[3]|number:3}} </td>
+                    <td> {{result.p[4]|number:3}} </td>
+                    <td> {{result.p[5]|number:3}} </td>
+                    <td> {{result.p[6]|number:3}} </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Summary screen -->
+      <div id="summary-screen" ng-show="summaryVisible">
+        <div class="row-fluid">
+          <div class="span5">
+            <h1>Daily Summary</h1>
+            <chart ng-model='Ctrl'>
+            <div id="pie" style="max-height: 250px;"></div>
+            </chart>
+          </div>
+          <div class="span3 pull-down" style="font-size: 12px; padding-top: 100px">
+            <table class="table table-bordered table-condensed" ng-show="resultsDisplayed">
+              <thead>
+                <th>Type</th>
+                <th>Readings</th>
+                <th>Time</th>
               </thead>
               <tbody>
-                <tr ng-repeat="result in results">
-                  <td>{{result.result}}</td>
-                  <td>{{result.date}}</td>
-                  <td> {{result.p[0]|number:3}} </td>
-                  <td> {{result.p[1]|number:3}} </td>
-                  <td> {{result.p[2]|number:3}} </td>
-                  <td> {{result.p[3]|number:3}} </td>
-                  <td> {{result.p[4]|number:3}} </td>
-                  <td> {{result.p[5]|number:3}} </td>
-                  <td> {{result.p[6]|number:3}} </td>
+                <tr ng-repeat="count in typeDistribution | orderBy: 'order'">
+                  <td>{{typeToString(count.order)}}</td>
+                  <td>{{count.value}}</td>
+                  <td>{{countToTime(count.value)}} </td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Summary screen -->
-    <div id="summary-screen" ng-show="summaryVisible">
-      <div class="row-fluid">
-        <div class="span5">
-          <h1>Daily Summary</h1>
-          <chart ng-model='Ctrl'>
-            <div id="pie" style="max-height: 250px;"></div>
-          </chart>
-        </div>
-        <div class="span3 pull-down" style="font-size: 12px; padding-top: 100px">
-          <table class="table table-bordered table-condensed" ng-show="resultsDisplayed">
-            <thead>
-              <th>Type</th>
-              <th>Readings</th>
-              <th>Time</th>
-            </thead>
-            <tbody>
-              <tr ng-repeat="count in typeDistribution | orderBy: 'order'">
-                <td>{{typeToString(count.order)}}</td>
-                <td>{{count.value}}</td>
-                <td>{{countToTime(count.value)}} </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="span4 pull-down">
-          <div class="well" >
-            <div id="datepicker"></div>
-            <script type="text/javascript">
-
-
-
-            $('#datepicker').datepicker();
-            $('#datepicker').datepicker('update');
-            $('#datepicker').datepicker('show');
-            $('#datepicker').datepicker('todayHighlight',true);
-
-            $('#datepicker').datepicker()
-            .on('changeDate', function(ev){
+          <div class="span4 pull-down">
+            <div class="well" >
+              <div id="datepicker"></div>
+              <script type="text/javascript">
+              $('#datepicker').datepicker();
+              $('#datepicker').datepicker('update');
+              $('#datepicker').datepicker('show');
+              $('#datepicker').datepicker('todayHighlight',true);
+              $('#datepicker').datepicker()
+              .on('changeDate', function(ev){
               //get a hold of controller and scope
               var element = angular.element($('#datepicker'));
               var controller = element.controller();
               var scope = element.scope();
-
               //as this happends outside of angular you probably have to notify angular of the change by wrapping your function call in $apply
               scope.$apply(function(){
-                scope.updateDateFunction(ev.date);
+              scope.updateDateFunction(ev.date);
               });
-
               // if(pie){
               //      r.clear();
               //      pie.clear();
@@ -222,7 +209,6 @@
               // pie.hover(function () {
               //   this.sector.stop();
               //   this.sector.scale(1.1, 1.1, this.cx, this.cy);
-
               //   if (this.label) {
               //     this.label[0].stop();
               //     this.label[0].attr({ r: 7.5 });
@@ -230,56 +216,94 @@
               //   }
               // }, function () {
               //   this.sector.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
-
               //   if (this.label) {
               //     this.label[0].animate({ r: 5 }, 500, "bounce");
               //     this.label[1].attr({ "font-weight": 400 });
               //   }
               // });
-            });
-            </script>
+              });
+              </script>
+            </div>
           </div>
         </div>
       </div>
-     </div>
-
-     <!-- Real-time screen -->
-     <div id="realtime-screen" ng-show="realtimeVisible">
-      <div class="row-fluid">
-        <div class="span4">
-          <div class="hero-unit">
-            <h1>Real time display</h1>
-            <p>Show activities in real time</p>
-            <p style="text-align: right;">
+      <!-- Real-time screen -->
+      <div id="realtime-screen" ng-show="realtimeVisible">
+        <div class="row-fluid">
+          <div class="span4">
+            <div class="hero-unit">
+              <h1>Real time display</h1>
+              <p>Show activities in real time</p>
+              <p style="text-align: right;">
               <a class="btn  btn-large" ng-class="{'btn-danger': realTimeActive, 'btn-success': !realTimeActive}" ng-click="toggleRealTime()"><i class="icon-eye-open icon-white"></i>  {{toggleText()}}
               </a>
-            </p>
-
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="span6">
-          <div class="well" style="text-align: center;">
-            <h1>
+          <div class="span6">
+            <div class="well" style="text-align: center;">
+              <h1>
               {{realTimeResult}}
-            </h1>
-            <p>
+              </h1>
+              <p>
               {{realTimeTimestamp}}
-            </p>
-            <p>
+              </p>
+              <p>
               <span class="label label-warning"><i class="icon-refresh icon-white"></i>lag: {{realTimeResultAge}}</span>
-            </p>
+              </p>
+            </div>
+            <div class="well" style="padding-top: 30px">
+              <progress class="progress progress-success" value="realTimeTickCounter"></progress>
+            </div>
           </div>
-          <div class="well" style="padding-top: 30px">
-            <progress class="progress progress-success" value="realTimeTickCounter"></progress>
-          </div>
-        </div>
-        <div class="span6">
-          <div >
-
+          <div class="span2">
           </div>
         </div>
       </div>
-
-
-   </body>
-   </html>
+      <!-- Leaderboard screen -->
+      <div id="leaderboard-screen" ng-show="leaderboardVisible" >
+        <div class="row-fluid">
+          <div class="span12" >
+            <div class="well ">
+              <p class="lead" style="margin-bottom: 0px; ">Top results from yesterday</p>
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid" ng-show="topSitter!==null">
+          <div class="span5" >
+            <div class="well">
+              <table >
+                <td>
+                  <td>
+                    <img src="{{topSitter.avatar}}" style="width: 100px;" class="img-circle">
+                  </td>
+                  <td style="padding-left: 2em;">
+                    <blockquote>
+                      <p>{{topSitter.name}}</p>
+                      <small>{{topSitterText}}</cite></small>
+                    </blockquote>
+                  </td>
+                </td>
+              </table>
+          </div>
+          <div class="well">
+              <table >
+                <td>
+                  <td>
+                    <img src="{{topStander.avatar}}" style="width: 100px;" class="img-circle">
+                  </td>
+                  <td style="padding-left: 2em;">
+                    <blockquote>
+                      <p>{{topStander.name}}</p>
+                      <small>{{topStanderText}}</cite></small>
+                    </blockquote>
+                  </td>
+                </td>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

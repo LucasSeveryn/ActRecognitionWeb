@@ -7,13 +7,19 @@ App.directive('chart', function(){
       var pie = null;
 
 
-      // scope.$watch('realTimeActive', function(v){
-      //   if(v){
-      //     mytimeout = $timeout(scope.loadRealTimeResult,3000);
-      //   }else{
-      //     $timeout.cancel(mytimeout);
-      //   }
-      // });
+      scope.$watch('topSitter', function(v){
+        if(v!==null){
+          console.log(v);
+          scope.topSitterText = "Winner of sitting category with " +  scope.countToTime2(v.count) + " spent sitting.";
+        }
+      });
+
+      scope.$watch('topStander', function(v){
+        if(v!==null){
+          console.log(v);
+          scope.topStanderText = "Winner of standing category with " +  scope.countToTime2(v.count) + " spent standing.";
+        }
+      });
 
       scope.$watch('typeDistribution', function(v){
         if(pie){
@@ -21,6 +27,7 @@ App.directive('chart', function(){
          pie.clear();
        }
        var sum = 0;
+      if(v!=null){
        for(var i=0;i<v.length;i++){
         sum = sum + v[i];
       }
@@ -44,6 +51,7 @@ App.directive('chart', function(){
           }
         });
       }
+    }
     }
     );
 }

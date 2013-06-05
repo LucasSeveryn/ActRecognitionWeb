@@ -37,24 +37,40 @@ App.controller('Ctrl', function ($scope, $http, $timeout){
   $scope.resultsVisible = true;
   $scope.summaryVisible = false;
   $scope.realtimeVisible = false;
+  $scope.leaderboardVisible = false;
 
 
   $scope.goToResults = function(){
     $scope.resultsVisible = true;
     $scope.summaryVisible = false;
     $scope.realtimeVisible = false;
+    $scope.leaderboardVisible = false;
   };
 
   $scope.goToSummary = function(){
    $scope.resultsVisible = false;
    $scope.summaryVisible = true;
    $scope.realtimeVisible = false;
+   $scope.leaderboardVisible = false;
  };
 
  $scope.goToRealtime = function(){
   $scope.resultsVisible = false;
   $scope.summaryVisible = false;
   $scope.realtimeVisible = true;
+  $scope.leaderboardVisible = false;
+};
+
+ $scope.goToLeaderboard = function(){
+  $scope.resultsVisible = false;
+  $scope.summaryVisible = false;
+  $scope.realtimeVisible = false;
+  $scope.leaderboardVisible = true;
+
+  if($scope.topStander==null){
+    $scope.count();
+  }
+
 };
 
 
@@ -65,6 +81,107 @@ $scope.logOut = function(){
   $scope.userSurname='';
   $scope.userId='';
   $scope.results=[];
+  // $scope.winner
+};
+
+
+
+$scope.topSitter = null;
+$scope.topSitterText = null;
+$scope.topStanderText = null;
+$scope.topStander = null;
+
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1, property.length - 1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    };
+}
+
+$scope.count = function(){
+  var sitters = function(data) {
+    getAllUsersActivityCount(data, 4, function(d) {
+      // console.log(d);
+      // console.log(_.sortBy( d, 'count' ));
+      // console.log(d.sort(dynamicSort("-count")));
+      $scope.topSitter=(d.sort(dynamicSort("-count")))[0];
+    });
+  };
+  getRegisteredUsersList(sitters);
+  var standers = function(data) {
+    getAllUsersActivityCount(data, 5, function(d) {
+      // console.log(d);
+      // console.log(_.sortBy( d, 'count' ));
+      // console.log(d.sort(dynamicSort("-count")));
+      $scope.topStander=(d.sort(dynamicSort("-count")))[0];
+    });
+  };
+  getRegisteredUsersList(standers);
+
+  $scope.winnersLoaded=true;
+};
+
+$scope.winnersLoaded=false;
+
+// pushIntoSitters = function(data, status, headers, config, userid, name) {
+//         alert(userid + userName + " t:" + type +  " " + data);
+//         $scope.sitters.push({userid: userid, userName: name, count: data});
+//         // alert(data);
+//         // sittingCount = data;
+//       };
+
+
+// pushIntoStanders = function(data, status, headers, config, userid, name) {
+//         // alert(userid + userName + " t:" + type +  " " + data);
+//         $scope.sitters.push({userid: userid, userName: name, count: data});
+//         // alert(data);
+//         // sittingCount = data;
+//       };
+
+
+getAllUsersActivityCount = function(usersList,type,cb){
+  var sdf = new JsSimpleDateFormat("MMM d, yyyy");
+  var date = sdf.format(new Date());
+  var returnArray = [];
+  var counter = 0;
+
+  for(var i=0; i<usersList.length; i++){
+    (function(j) {
+      $scope.countActivitiesForUser(usersList[j].userid,type,date,function(data) {
+        counter++;
+        returnArray.push({userid: usersList[j].userid, name: usersList[j].name, count: data, avatar: usersList[j].avatar});
+        if(counter >= usersList.length) {
+          cb(returnArray);
+        }
+      });
+    })(i);
+  }
+};
+
+
+getRegisteredUsersList = function(cb){
+  var url = "https://api.mongolab.com/api/1/databases/activity_recognition/collections/users?f={%22userid%22:1,%22name%22:1,%22avatar%22:1}&apiKey=" + $scope.apiKey;
+  // var url = "https://api.mongolab.com/api/1/databases/activity_recognition/collections/classification_results?q={%22userid%22:" + userid + ",%22result%22:"+type+"}&c=true&apiKey=" + $scope.apiKey;
+  $http.get(url).success(
+    function(usersList, status, headers, config) {
+       cb(usersList);
+    }
+  );
+};
+
+$scope.countActivitiesForUser = function(userid,type,date,cb){
+  var url = "https://api.mongolab.com/api/1/databases/activity_recognition/collections/classification_results?q={%22userid%22:" + userid + ",%22result%22:"+type+"}&c=true&apiKey=" + $scope.apiKey;
+  $http.get(url).success(
+    function(data, status, headers, config) {
+      cb(parseInt(data));
+    }
+  );
+
 };
 
 $scope.logIn = function() {
@@ -140,6 +257,16 @@ $scope.logIn = function() {
     m = Math.floor(d % 3600 / 60);
     s = Math.floor(d % 3600 % 60);
     return (h > 0 ? h + ":" : "") + (m > 0 ? (m < 10 ? "0" : "") + m + ":" : "0:") + (s < 10 ? "0" : "") + s;
+  };
+
+  $scope.countToTime2 = function(d) {
+    var h, m, s;
+    d = d * 3.25; //12.8 seconds full sample size, every 6.4 classification is performed.
+    d = Number(d) || 0;
+    h = Math.floor(d / 3600);
+    m = Math.floor(d % 3600 / 60);
+    s = Math.floor(d % 3600 % 60);
+    return (h > 0 ? h + " hours " : "") + (m > 0 ? (m < 10 ? "" : "") + m + " minutes " : "") + " and " + (s < 10 ? "" : "") + s + " seconds";
   };
 
   $scope.msToTime = function(d) {
